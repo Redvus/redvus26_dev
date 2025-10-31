@@ -21,24 +21,8 @@
 
     /*----------  Layout  ----------*/
     --paddingMobile: 1rem;
-
     --wrapperInsideWidth: 25vmax;
-
-    /*----------  News  ----------*/
-    --newsHeight: 35vmax;
-    --newsItemWidth: calc(100% / 4.3);
-
-    --newsItemHeightNum: 5%;
-    --newsItemDateHeight: calc(var(--newsItemHeightNum) * 3);
-    --newsItemTitleHeight: calc(var(--newsItemHeightNum) * 7);
-    --newsItemTextHeight: calc(var(--newsItemHeightNum) * 10);
-
-    /*----------  Read  ----------*/
-    --readHeight: 20vmax;
-    --readItemWidth: calc(100% / 5.5);
-
-    --resourcesHeight: 5vmax;
-    --resourcesItemWidth: calc(100% / 6.8);
+    --shutterBackground: var(--five);
 
     /*----------  Footer  ----------*/
     --footerHeight: 10vmax;

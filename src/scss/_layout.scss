@@ -44,12 +44,22 @@ body {
     // padding: calc(var(--header-height) * 1.5) calc(var(--header-height) * 1.5) calc(var(--header-height) * 0.5);
     overflow: hidden;
 
-    &__inside {
-        width: var(--wrapperInsideWidth);
-        min-height: 20vh;
-        display: flex;
-        overflow: hidden;
-        // background-color: var(--fourth);
+    &__shutter {
+        width: 50%;
+        height: 100vh;
+        display: block;
+        position: fixed;
+        top: 0;
+        background-color: var(--shutterBackground);
+        z-index: 999;
+
+        &_left {
+            left: 0;
+        }
+
+        &_right {
+            left: 50%;
+        }
     }
 
     &__content {
@@ -59,207 +69,6 @@ body {
         flex-direction: column;
         align-items: center;
         overflow: hidden;
-
-        &_top {
-            width: 100%;
-            // min-height: 7vmax;
-            display: block;
-            margin-bottom: 2rem;
-            background-color: var(--elementBackground);
-
-            img {
-                width: 100%;
-                height: auto;
-                display: block;
-                object-position: center;
-                object-fit: cover;
-            }
-        }
-
-        &_title {
-            font-weight: $font-weight-thin;
-            font-stretch: $font-width-extended;
-        }
-
-        &_news {
-            width: 100%;
-            height: var(--newsHeight);
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-bottom: 2rem;
-
-            &_item {
-                width: var(--newsItemWidth);
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                background-color: var(--elementBackground);
-                cursor: pointer;
-                margin-bottom: calc(var(--marginBase) * 2);
-
-                &_top {
-                    width: 100%;
-                    height: calc(var(--newsItemWidth) * 1.7);
-                    display: block;
-                    background-color: var(--third-darken-13);
-                    overflow: hidden;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        display: block;
-                        object-position: center;
-                        object-fit: cover;
-                        opacity: 0.8;
-                        // transform: scale(1.05);
-                        filter: grayscale(0.3);
-                    }
-                }
-
-                &_bottom {
-                    width: 100%;
-                    height: calc(100% - (var(--newsItemWidth) * 1.7));
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                }
-
-                &_date {
-                    width: calc(100% - (var(--marginBase) * 2));
-                    height: var(--newsItemDateHeight);
-                    display: flex;
-                    align-items: center;
-                    // justify-content: center;
-                    padding: 0 var(--marginBase);
-                    color: var(--primary);
-                }
-
-                &_title {
-                    width: calc(100% - (var(--marginBase) * 2));
-                    height: var(--newsItemTitleHeight);
-                    display: flex;
-                    align-items: center;
-                    // justify-content: center;
-                    padding: 0 var(--marginBase);
-                    // background-color: var(--third-darken-5);
-
-                    h4 {
-                        margin: 0;
-                        font-weight: $font-weight-thin;
-                        font-stretch: $font-width-normal;
-                        // color: var(--primary);
-                    }
-                }
-
-                &_text {
-                    width: calc(100% - (var(--marginBase) * 2));
-                    height: calc(
-                        var(--newsItemTextHeight) - (var(--marginBase) * 2)
-                    );
-                    display: flex;
-                    align-items: flex-end;
-                    padding: var(--marginBase);
-                }
-
-                &:hover {
-                    .wrapper__content_news_item_top {
-                        img {
-                            // transform: scale(1);
-                            opacity: 1;
-                            filter: grayscale(0);
-                        }
-                    }
-                }
-            }
-        }
-
-        &_read {
-            width: 100%;
-            min-height: var(--readHeight);
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-bottom: 2rem;
-
-            &_item {
-                width: var(--readItemWidth);
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                background-color: var(--elementBackground);
-
-                &_image {
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                    // background-color: var(--third-darken-13);
-                    overflow: hidden;
-                    cursor: pointer;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        display: block;
-                        object-position: center;
-                        object-fit: cover;
-                        opacity: 0.8;
-                        transform: scale(1.05);
-                    }
-
-                    &:hover {
-                        img {
-                            transform: scale(1);
-                            opacity: 1;
-                        }
-                    }
-                }
-            }
-        }
-
-        &_bottom {
-            width: 100%;
-            // min-height: var(--resourcesHeight);
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            // margin-bottom: 2rem;
-
-            &_item {
-                width: var(--resourcesItemWidth);
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                background-color: var(--elementBackground);
-
-                &_image {
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                    // background-color: var(--third-darken-13);
-                    overflow: hidden;
-                    cursor: pointer;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        display: block;
-                        object-position: center;
-                        object-fit: cover;
-                        // opacity: 0.8;
-                        // transform: scale(1.05);
-                    }
-
-                    // &:hover {
-
-                    //     img {
-                    //         transform: scale(1);
-                    //         opacity: 1;
-                    //     }
-                    // }
-                }
-            }
-        }
 
         @include bp.media-up("Medium") {
             padding: 0 calc(var(--header-height) * 1.5);
